@@ -50,9 +50,9 @@ namespace WinFormsTrivia
                 this.Hide();
             }
         }
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(Environment.ExitCode);
+            Environment.Exit(0);
         }
     }
 }

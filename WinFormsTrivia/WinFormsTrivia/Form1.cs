@@ -89,7 +89,7 @@ namespace WinFormsTrivia
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(Environment.ExitCode);
+            Environment.Exit(0);
         }
 
 
