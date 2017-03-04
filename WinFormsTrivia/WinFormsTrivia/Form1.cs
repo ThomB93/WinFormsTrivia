@@ -38,6 +38,7 @@ namespace WinFormsTrivia
 
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             categoryValue = new Dictionary<string, int> //match json URL value
             {
                 {"General Knowledge", 9},
@@ -56,12 +57,15 @@ namespace WinFormsTrivia
             var difficulty = comboDifficulty.SelectedItem.ToString();
             difficulty = difficulty.ToLower();
 
-            var json = new WebClient().DownloadString("https://www.opentdb.com/api.php?amount=10&category=" + chosenCategory + "&difficulty=" + difficulty + "&type=multiple");
+            var json = new WebClient().DownloadString("https://www.opentdb.com/api.php?amount=10&category="
+                + chosenCategory + "&difficulty=" + difficulty + "&type=multiple");
             RootObject questionsRootObject = JsonConvert.DeserializeObject<RootObject>(json);
 
             foreach (var item in questionsRootObject.results)
             {
-                listBox1.Items.Add(item.question);
+                byte[] bytes = Encoding.Default.GetBytes(item.question);
+                string encodedString = Encoding.UTF8.GetString(bytes);
+                listBox1.Items.Add(encodedString);
             }
         }
     }
