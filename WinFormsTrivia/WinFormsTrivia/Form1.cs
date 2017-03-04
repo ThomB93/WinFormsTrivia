@@ -15,6 +15,7 @@ namespace WinFormsTrivia
     public partial class Form1 : Form
     {
         private Dictionary<string, int> categoryValue;
+        private int score = 0;
         public Form1()
         {
             InitializeComponent();
@@ -67,6 +68,29 @@ namespace WinFormsTrivia
                 string encodedString = Encoding.UTF8.GetString(bytes);
                 listBox1.Items.Add(encodedString);
             }
+        }
+
+        private void listBox1_DoubleClick_1(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                SelectedQuestionClass.Question = listBox1.SelectedItem.ToString(); //save question as static string
+                Form2 answerForm = new Form2();
+                answerForm.Show();
+                this.Hide();
+            }
+        }
+
+
+        //Non implemented events
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPoints_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
