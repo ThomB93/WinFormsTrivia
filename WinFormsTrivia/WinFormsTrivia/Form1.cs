@@ -15,10 +15,12 @@ namespace WinFormsTrivia
     public partial class Form1 : Form
     {
         private Dictionary<string, int> categoryValue;
-        private int score = 0;
+        private RootObject questionsRootObject;
         public Form1()
         {
             InitializeComponent();
+
+            labelPoints.Text = StaticVariables.Points.ToString();
             comboCategory.Items.Add("General Knowledge");
             comboCategory.Items.Add("History");
             comboCategory.Items.Add("Mythology");
@@ -60,7 +62,7 @@ namespace WinFormsTrivia
 
             var json = new WebClient().DownloadString("https://www.opentdb.com/api.php?amount=10&category="
                 + chosenCategory + "&difficulty=" + difficulty + "&type=multiple");
-            RootObject questionsRootObject = JsonConvert.DeserializeObject<RootObject>(json);
+            questionsRootObject = JsonConvert.DeserializeObject<RootObject>(json);
 
             foreach (var item in questionsRootObject.results)
             {
@@ -74,11 +76,20 @@ namespace WinFormsTrivia
         {
             if (listBox1.SelectedItem != null)
             {
-                SelectedQuestionClass.Question = listBox1.SelectedItem.ToString(); //save question as static string
-                Form2 answerForm = new Form2();
+                int selectedIndex = listBox1.SelectedIndex; 
+                StaticVariables.Question = listBox1.SelectedItem.ToString(); //save question as static string
+                StaticVariables.Answers = questionsRootObject.results[selectedIndex].incorrect_answers;
+                StaticVariables.Answers.Add(questionsRootObject.results[selectedIndex].correct_answer);
+                StaticVariables.CorrectAnswer = questionsRootObject.results[selectedIndex].correct_answer;
+
+                Form2 answerForm = new Form2(); //change form
                 answerForm.Show();
                 this.Hide();
             }
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
         }
 
 
