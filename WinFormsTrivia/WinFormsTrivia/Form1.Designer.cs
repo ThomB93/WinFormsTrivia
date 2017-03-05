@@ -38,6 +38,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelPoints = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelTries = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboCategory
@@ -129,11 +131,31 @@
             this.labelPoints.Text = "[]";
             this.labelPoints.Click += new System.EventHandler(this.labelPoints_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(465, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Tries left:";
+            // 
+            // labelTries
+            // 
+            this.labelTries.AutoSize = true;
+            this.labelTries.Location = new System.Drawing.Point(521, 9);
+            this.labelTries.Name = "labelTries";
+            this.labelTries.Size = new System.Drawing.Size(13, 13);
+            this.labelTries.TabIndex = 11;
+            this.labelTries.Text = "[]";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 208);
+            this.Controls.Add(this.labelTries);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.labelPoints);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -167,6 +189,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelPoints;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelTries;
     }
 }
 

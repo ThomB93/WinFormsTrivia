@@ -19,8 +19,10 @@ namespace WinFormsTrivia
         public Form1()
         {
             InitializeComponent();
-
+            
             labelPoints.Text = StaticVariables.Points.ToString();
+            labelTries.Text = StaticVariables.Tries.ToString();
+
             comboCategory.Items.Add("General Knowledge");
             comboCategory.Items.Add("History");
             comboCategory.Items.Add("Mythology");

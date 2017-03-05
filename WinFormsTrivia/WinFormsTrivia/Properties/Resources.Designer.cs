@@ -68,5 +68,23 @@ namespace WinFormsTrivia.Properties {
                 return ResourceManager.GetString("Form2_button1_Click_Correct_Answer_", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong Answer!.
+        /// </summary>
+        internal static string Form2_button1_Click_Wrong_Answer_ {
+            get {
+                return ResourceManager.GetString("Form2_button1_Click_Wrong_Answer_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You lost the game!.
+        /// </summary>
+        internal static string Form2_button1_Click_You_lost_the_game_ {
+            get {
+                return ResourceManager.GetString("Form2_button1_Click_You_lost_the_game_", resourceCulture);
+            }
+        }
     }
 }

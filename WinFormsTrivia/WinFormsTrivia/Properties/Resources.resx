@@ -117,4 +117,10 @@
   <data name="Form2_button1_Click_Correct_Answer_" xml:space="preserve">
     <value>Correct Answer!</value>
   </data>
+  <data name="Form2_button1_Click_Wrong_Answer_" xml:space="preserve">
+    <value>Wrong Answer!</value>
+  </data>
+  <data name="Form2_button1_Click_You_lost_the_game_" xml:space="preserve">
+    <value>You lost the game!</value>
+  </data>
 </root>

@@ -12,6 +12,7 @@ namespace WinFormsTrivia
         public static List<string> Answers { get; set; }
         public static string CorrectAnswer { get; set; }
         public static int Points { get; set; }
+        public static int Tries { get; set; } = 3; //default value
 
         public static void Shuffle<T>(this IList<T> list)
         {

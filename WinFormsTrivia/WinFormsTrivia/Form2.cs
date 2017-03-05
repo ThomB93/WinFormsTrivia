@@ -34,7 +34,7 @@ namespace WinFormsTrivia
         {
             if (listBox1.SelectedItem.ToString() == StaticVariables.CorrectAnswer)
             {
-                MessageBox.Show("Correct Answer!");
+                MessageBox.Show(Resources.Form2_button1_Click_Correct_Answer_);
                 StaticVariables.Points++;
 
                 Form1 questionsForm = new Form1(); //change form
@@ -43,16 +43,33 @@ namespace WinFormsTrivia
             }
             else
             {
-                MessageBox.Show("Wrong Answer!");
-
-                Form1 questionsForm = new Form1(); //change form
-                questionsForm.Show();
-                this.Hide();
+                MessageBox.Show(Resources.Form2_button1_Click_Wrong_Answer_);
+                CheckIfGameOver();
             }
         }
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CheckIfGameOver();
+        }
+
+        private void CheckIfGameOver()
+        {
+            if (StaticVariables.Tries == 0)
+            {
+                MessageBox.Show(Resources.Form2_button1_Click_You_lost_the_game_);
+            }
+            else
+            {
+                StaticVariables.Tries--;
+                Form1 questionsForm = new Form1(); //change form
+                questionsForm.Show();
+                this.Hide();
+            }
         }
     }
 }
