@@ -44,6 +44,7 @@ namespace WinFormsTrivia
             else
             {
                 MessageBox.Show(Resources.Form2_button1_Click_Wrong_Answer_);
+                
                 CheckIfGameOver();
             }
         }
@@ -59,9 +60,11 @@ namespace WinFormsTrivia
 
         private void CheckIfGameOver()
         {
-            if (StaticVariables.Tries == 0)
+            if (StaticVariables.Tries <= 1)
             {
                 MessageBox.Show(Resources.Form2_button1_Click_You_lost_the_game_);
+                MessageBox.Show("Total points: " + StaticVariables.Points);
+                Environment.Exit(0);
             }
             else
             {
